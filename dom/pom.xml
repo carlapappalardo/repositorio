@@ -114,6 +114,13 @@
             <artifactId>danhaywood-isis-wicket-gmap3-applib</artifactId>
         </dependency>
          -->
+        <dependency>
+			<groupId>org.apache.isis.viewer</groupId>
+			<artifactId>isis-viewer-wicket-ui</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+            
+        
         
 	</dependencies>
 

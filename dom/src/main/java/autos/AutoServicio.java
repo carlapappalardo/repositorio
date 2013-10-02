@@ -11,6 +11,7 @@ import org.apache.isis.applib.annotation.ActionSemantics.Of;
 import org.apache.isis.applib.annotation.Hidden;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Named;
+import org.apache.isis.applib.annotation.Optional;
 import org.apache.isis.applib.filter.Filter;
 import org.apache.isis.applib.query.QueryDefault;
 import org.apache.isis.applib.util.TitleBuffer;
@@ -29,6 +30,12 @@ import marca.Marca;
 @Named("Flota")
 public class AutoServicio extends AbstractFactoryAndRepository {
 	
+	//{
+	
+	
+	// }
+	
+	
 	// {{ 
 	@MemberOrder(sequence = "1") // Carga de Autos
 	public Auto CargarAuto(
@@ -43,10 +50,12 @@ public class AutoServicio extends AbstractFactoryAndRepository {
 		@Named("Tipo de Combustible") TipoCombustible combustible,
 		@Named("Estado de Alquiler") Estado estado,
 		@Named("Fecha de Compra") Date fechaCompra,
-		@Named("Compañía de Seguro")Seguro seguro) { 
+		@Named("Compañía de Seguro")Seguro seguro,
+		@Optional
+		@Named("Deposito")String deposito) { 
 		final boolean activo=true;
 		final String ownedBy = currentUserName();
-		return elAuto(patente,marca,modelo,ano,color,kms,baul,combustible,estado,fechaCompra,seguro,activo, ownedBy);
+		return elAuto(patente,marca,modelo,ano,color,kms,baul,combustible,estado,fechaCompra,seguro, deposito,activo, ownedBy);
 			     
 	}
 	// }}
@@ -70,6 +79,7 @@ public class AutoServicio extends AbstractFactoryAndRepository {
 		final Estado estado,
 		final Date fechaCompra,
 		final Seguro seguro,
+		final String deposito,
 		final boolean activo,
 		final String userName) {
 		
@@ -97,6 +107,7 @@ public class AutoServicio extends AbstractFactoryAndRepository {
 			auto.setEstado(estado);
 			auto.setFechaCompra(fechaCompra);
 			auto.setSeguro(seguro);
+			auto.setDeposito(new Deposito(deposito));
 			auto.setActivo(activo);
 			auto.setOwnedBy(userName);
  

@@ -232,6 +232,18 @@ public class Auto {
    		this.activo=activo; 
    	}	
     // }}
+   	
+   	// {{ Deposito;
+   	@Persistent
+   	private Deposito deposito;   	
+   	public Deposito getDeposito(){
+		return deposito;	
+   	}
+   	
+   	public void setDeposito(Deposito deposito){
+		this.deposito=deposito;
+   	}
+   	// }}
    	   	
    	//{{ Remove   	
    	public void remove(){
